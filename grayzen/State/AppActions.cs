@@ -23,19 +23,24 @@ namespace grayzen.State
             else if (state == State.Normal) { ChangeState(State.Gray); }
         }
 
-        internal static void ColorFor1Min()
+        internal static void EnableColourModeForTimeInterval()
         {
             if (state == State.Gray) { 
                 ChangeState(State.Normal);
-                var timer = new Timer(1000);
-                timer.Elapsed += OnTimedEvent;
-                timer.AutoReset = false;
+                var timer = new System.Windows.Forms.Timer();
+                timer.Interval = 1000;
+                timer.Tick += new EventHandler(OnTimedEvent);
                 timer.Start();
             }
         }
 
-        private static void OnTimedEvent(Object source, ElapsedEventArgs e)
+        private static void OnTimedEvent(Object source, EventArgs e)
         {
+            if (source is System.Windows.Forms.Timer timer)
+            {
+                timer.Stop();
+
+            }
             ChangeState(State.Gray);
         }
 

@@ -10,15 +10,18 @@ namespace grayzen
 
     class Grayscaler
     {
+        private const float redWeight = 0.2126f;
+        private const float greenWeight = 0.7152f;
+        private const float blueWeight = 0.0722f;
+
         internal static void GoGrey()
         {
-            float redScale = 0.2126f, greenScale = 0.7152f, blueScale = 0.0722f;
             var magEffectInvert = new MAGCOLOREFFECT
             {
                 transform = new[] {
-                    redScale,   redScale,   redScale,   0.0f,  0.0f,
-                    greenScale, greenScale, greenScale, 0.0f,  0.0f,
-                    blueScale,  blueScale,  blueScale,  0.0f,  0.0f,
+                    redWeight,   redWeight,   redWeight,   0.0f,  0.0f,
+                    greenWeight, greenWeight, greenWeight, 0.0f,  0.0f,
+                    blueWeight,  blueWeight,  blueWeight,  0.0f,  0.0f,
                     0.0f,       0.0f,       0.0f,       1.0f,  0.0f,
                     0.0f,       0.0f,       0.0f,       0.0f,  1.0f
                 }

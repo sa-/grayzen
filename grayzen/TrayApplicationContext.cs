@@ -41,7 +41,7 @@ namespace grayzen
 
         void hook_KeyPressed(object sender, KeyPressedEventArgs e)
         {
-            AppActions.ColorFor1Min();
+            AppActions.EnableColourModeForTimeInterval();
         }
 
         // Menu items
