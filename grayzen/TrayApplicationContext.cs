@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace grayzen
 {
-    using static NativeMethods;
+    
 
     public class TrayApplicationContext : ApplicationContext
     {
@@ -14,35 +14,21 @@ namespace grayzen
         public TrayApplicationContext()
         {
             // Initialize Tray Icon
+            MenuItem menuItem = new MenuItem("Disable for one minute", DisableForOneMinute);
+            menuItem.Checked = false;
             trayIcon = new NotifyIcon()
             {
-                Icon = Properties.Resources.Cube,
+                Icon = Properties.Resources.grayzen,
                 ContextMenu = new ContextMenu(new MenuItem[] {
-                new MenuItem("Exit", Exit),
-                new MenuItem("Grey", Gray),
-                new MenuItem("Color", Color)
+                menuItem,
+                new MenuItem("Exit", Exit)
             }),
                 Visible = true
             };
 
-            MagInitialize();
-
-            KeyboardHook hook = new KeyboardHook();
-            // register the event that is fired after the key press.
-            hook.KeyPressed +=
-                new EventHandler<KeyPressedEventArgs>(hook_KeyPressed);
-
-            hook.RegisterHotKey(HotkeyModifierKeys.Control | HotkeyModifierKeys.Alt,
-                Keys.Space);
-
-            AppActions.GoGrey();
+            AppState.InitApp();
         }
 
-
-        void hook_KeyPressed(object sender, KeyPressedEventArgs e)
-        {
-            AppActions.EnableColourModeForTimeInterval();
-        }
 
         // Menu items
         void Exit(object sender, EventArgs e)
@@ -53,8 +39,6 @@ namespace grayzen
             Application.Exit();
         }
 
-        void Gray(object sender, EventArgs e) => AppActions.GoGrey();
-
-        void Color(object sender, EventArgs e) => AppActions.GoNormal();
+        void DisableForOneMinute(object sender, EventArgs e) => AppState.EnableColourModeForTimeInterval(60_000);
     }
 }
