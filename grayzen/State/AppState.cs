@@ -34,7 +34,7 @@ namespace grayzen.State
 
             void hook_KeyPressed(object sender, KeyPressedEventArgs e)
             {
-                ToggleTimedColourSession(60_000);
+                ToggleTimedColourSession(5_000);
             }
         }
 
