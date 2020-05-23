@@ -14,14 +14,12 @@ namespace grayzen.State
     internal class AppState
     {
         private static State state;
-        private static TimedColorMode timedColorMode;
 
         internal static void InitApp()
         {
             MagInitialize();
             SetKeyboardShortcut();
             GoGrey();
-            timedColorMode = new TimedColorMode();
         }
 
         private static void SetKeyboardShortcut()
@@ -36,7 +34,7 @@ namespace grayzen.State
 
             void hook_KeyPressed(object sender, KeyPressedEventArgs e)
             {
-                EnableColourModeForTimeInterval(60_000);
+                ToggleTimedColourSession(60_000);
             }
         }
 
@@ -52,28 +50,16 @@ namespace grayzen.State
             else if (state == State.Colour) { ChangeState(State.Gray); }
         }
 
-        internal static void EnableColourModeForTimeInterval(int milliseconds)
+        internal static void ToggleTimedColourSession(int milliseconds)
         {
-            if (state == State.Gray)
+            if (TimedColorSession.IsRunning()) { 
+                TimedColorSession.EndTimerEarly(); 
+            } 
+            else
             {
-                ChangeState(State.Colour);
-                var timer = new System.Windows.Forms.Timer();
-                timer.Interval = milliseconds;
-                timer.Tick += new EventHandler(OnTimedEvent);
-                timer.Start();
+                TimedColorSession.StartTimedColourSession(milliseconds);
             }
-        }
-
-        internal static void EnableColourModeForTimeInterval_Old(int milliseconds)
-        {
-            if (state == State.Gray)
-            {
-                ChangeState(State.Colour);
-                var timer = new System.Windows.Forms.Timer();
-                timer.Interval = milliseconds;
-                timer.Tick += new EventHandler(OnTimedEvent);
-                timer.Start();
-            }
+            
         }
 
         static void RenderState()
@@ -92,7 +78,7 @@ namespace grayzen.State
             ChangeState(State.Gray);
         }
 
-        internal static void GoNormal()
+        internal static void GoColour()
         {
             ChangeState(State.Colour);
         }

@@ -15,7 +15,6 @@ namespace grayzen
         {
             // Initialize Tray Icon
             MenuItem menuItem = new MenuItem("Disable for one minute", DisableForOneMinute);
-            menuItem.Checked = false;
             trayIcon = new NotifyIcon()
             {
                 Icon = Properties.Resources.grayzen,
@@ -39,6 +38,6 @@ namespace grayzen
             Application.Exit();
         }
 
-        void DisableForOneMinute(object sender, EventArgs e) => AppState.EnableColourModeForTimeInterval(60_000);
+        void DisableForOneMinute(object sender, EventArgs e) => AppState.ToggleTimedColourSession(60_000);
     }
 }
