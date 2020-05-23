@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Timers;
-using System.Threading.Tasks;
-using grayzen.HotkeyHandling;
-using System.Windows.Forms;
-
-namespace grayzen.State
+﻿namespace grayzen.State
 {
     using static NativeMethods;
 
@@ -18,24 +9,7 @@ namespace grayzen.State
         internal static void InitApp()
         {
             MagInitialize();
-            SetKeyboardShortcut();
             GoGrey();
-        }
-
-        private static void SetKeyboardShortcut()
-        {
-            KeyboardHook hook = new KeyboardHook();
-            // register the event that is fired after the key press.
-            hook.KeyPressed +=
-                new EventHandler<KeyPressedEventArgs>(hook_KeyPressed);
-
-            hook.RegisterHotKey(HotkeyModifierKeys.Control | HotkeyModifierKeys.Alt,
-                Keys.Space);
-
-            void hook_KeyPressed(object sender, KeyPressedEventArgs e)
-            {
-                ToggleTimedColourSession(5_000);
-            }
         }
 
         static void ChangeState(State state)
@@ -53,12 +27,12 @@ namespace grayzen.State
         internal static void ToggleTimedColourSession(int milliseconds)
         {
             TimedColorSession.ToggleTimedColourSession(milliseconds);
-            
+
         }
 
         static void RenderState()
         {
-            if(state == State.Gray)
+            if (state == State.Gray)
             {
                 Grayscaler.GoGrey();
             }

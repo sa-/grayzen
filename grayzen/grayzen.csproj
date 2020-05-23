@@ -50,9 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColorTransformation\Grayscaler.cs" />
-    <Compile Include="HotkeyHandling\KeyboardHook.cs" />
-    <Compile Include="HotkeyHandling\KeyPressedEventArgs.cs" />
-    <Compile Include="HotkeyHandling\HotkeyModifierKeys.cs" />
     <Compile Include="ColorTransformation\NativeMethods.cs" />
     <Compile Include="State\AppState.cs" />
     <Compile Include="State\State.cs" />

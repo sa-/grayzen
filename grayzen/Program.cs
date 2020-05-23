@@ -3,8 +3,6 @@ using System.Windows.Forms;
 
 namespace grayzen
 {
-    using static NativeMethods;
-
     static class Program
     {
         /// <summary>
@@ -22,5 +20,5 @@ namespace grayzen
     }
 
 
-    
+
 }

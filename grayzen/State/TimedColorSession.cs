@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace grayzen.State
 {
@@ -12,7 +8,8 @@ namespace grayzen.State
 
         private static void StartTimedColourSession(int milliseconds)
         {
-            if(timer != null ) {
+            if (timer != null)
+            {
                 timer.Dispose();
             }
             timer = new System.Windows.Forms.Timer();
@@ -36,14 +33,14 @@ namespace grayzen.State
 
         public static bool IsRunning()
         {
-            return 
-                timer != null && 
+            return
+                timer != null &&
                 timer.Enabled;
         }
 
         public static void EndTimerEarly()
         {
-            if(timer == null) { return; }
+            if (timer == null) { return; }
             timer.Dispose();
             AppState.GoGrey();
         }
