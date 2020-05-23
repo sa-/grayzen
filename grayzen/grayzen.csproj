@@ -33,8 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>Resources\grayzen.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -55,8 +54,9 @@
     <Compile Include="HotkeyHandling\KeyPressedEventArgs.cs" />
     <Compile Include="HotkeyHandling\HotkeyModifierKeys.cs" />
     <Compile Include="ColorTransformation\NativeMethods.cs" />
-    <Compile Include="State\AppActions.cs" />
+    <Compile Include="State\AppState.cs" />
     <Compile Include="State\State.cs" />
+    <Compile Include="State\TimedColorSession.cs" />
     <Compile Include="TrayApplicationContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,6 +85,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\box_d_cube_icon_143829.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interface\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Donut.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grayzen.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

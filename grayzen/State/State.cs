@@ -9,6 +9,6 @@ namespace grayzen.State
     enum State
     {
         Gray,
-        Normal
+        Colour
     }
 }

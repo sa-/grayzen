@@ -63,9 +63,9 @@ namespace grayzen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon Cube {
+        internal static System.Drawing.Icon grayzen {
             get {
-                object obj = ResourceManager.GetObject("Cube", resourceCulture);
+                object obj = ResourceManager.GetObject("grayzen", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
