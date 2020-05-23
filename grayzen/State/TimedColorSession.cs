@@ -10,7 +10,7 @@ namespace grayzen.State
     {
         private static System.Windows.Forms.Timer timer;
 
-        public static void StartTimedColourSession(int milliseconds)
+        private static void StartTimedColourSession(int milliseconds)
         {
             if(timer != null ) {
                 timer.Dispose();
@@ -26,7 +26,11 @@ namespace grayzen.State
         {
             if (IsRunning())
             {
-
+                EndTimerEarly();
+            }
+            else
+            {
+                StartTimedColourSession(milliseconds);
             }
         }
 

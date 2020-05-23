@@ -52,13 +52,7 @@ namespace grayzen.State
 
         internal static void ToggleTimedColourSession(int milliseconds)
         {
-            if (TimedColorSession.IsRunning()) { 
-                TimedColorSession.EndTimerEarly(); 
-            } 
-            else
-            {
-                TimedColorSession.StartTimedColourSession(milliseconds);
-            }
+            TimedColorSession.ToggleTimedColourSession(milliseconds);
             
         }
 
