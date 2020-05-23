@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace grayzen
+﻿namespace grayzen
 {
     using static NativeMethods;
 
@@ -28,7 +22,7 @@ namespace grayzen
             };
 
             MagSetFullscreenColorEffect(ref magEffectInvert);
-            
+
         }
 
         internal static void DontTransformColor()

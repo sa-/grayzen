@@ -1,11 +1,10 @@
-﻿using grayzen.HotkeyHandling;
-using grayzen.State;
+﻿using grayzen.State;
 using System;
 using System.Windows.Forms;
 
 namespace grayzen
 {
-    
+
 
     public class TrayApplicationContext : ApplicationContext
     {
@@ -14,7 +13,7 @@ namespace grayzen
         public TrayApplicationContext()
         {
             // Initialize Tray Icon
-            MenuItem menuItem = new MenuItem("Disable for one minute", DisableForOneMinute);
+            MenuItem menuItem = new MenuItem("60s colour session (click again to disable)", DisableForOneMinute);
             trayIcon = new NotifyIcon()
             {
                 Icon = Properties.Resources.grayzen,

@@ -8,6 +8,3 @@ Grayscaling helps you cut down on screen time by making your computer screen les
 
 ## Instructions
 Download it from [releases](https://github.com/sa-/grayzen/releases) and open the file. Look for the grey circle in your Tray.
-
-### Timed Color Session
-Press Ctrl + Alt + Space to start a Colour Session for 1 minute.
